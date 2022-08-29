@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,600;0,700;1,600&family=Nunito:wght@200;300;600;800&display=swap');
 
 :root {
-    --title-font: 'Josefin Sans', sans-serif;
-    --body-font: 'Nunito', sans-serif;
+  --title-font: 'Josefin Sans', sans-serif;
+  --body-font: 'Nunito', sans-serif;
 }
 
 body {
-    height: 100%;
-    width: 100%;
-    background-color: #E0DFFD;
-    font-family: var(--body-font);
+  height: 100%;
+  width: 100%;
+  background-color: #e0dffd;
+  font-family: var(--body-font);
 }
