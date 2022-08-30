@@ -25,6 +25,6 @@ export const welcomeView = () => {
     `;
   //document.innerHTML = welcomePage;
   //document.getElementsByClassName('welcomeContainer').innerHTML += welcomePage;
-  divWelcome.appendChild(welcomePage);
+  divWelcome.innerHTML = welcomePage;
   return divWelcome;
 };
