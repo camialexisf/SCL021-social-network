@@ -3,28 +3,30 @@
 //     <h2>hay que compartip</h2>
 // `;
 
-// console.log('aparezco');
+console.log('aparezco');
 
 export const welcomeView = () => {
-  const divWelcome = document.createElement('div');
-  divWelcome.className = 'welcomeContainer';
-  divWelcome.setAttribute('id', 'welcomeContainer');
+  // const divWelcome = document.createElement('div');
+  // divWelcome.className = 'welcomeContainer';
+  // divWelcome.setAttribute('id','welcomeContainer');
   // const divLogo = document.createElement('div');
   // divLogo.className = 'logoContainer';
   // const divLoginButton = document.createElement('div');
   // divLoginButton.className = 'loginButtonContainer';
-  const welcomePage = /*html*/ ` 
+  const welcomePage = ` 
     <div class= "logoContainer">
-    <img src="./images/tutipLogo.png">
-    <h2> hay que compartip </h2>
+        <img class= "logoImagen" src="./images/tutipWithSubtitle.png">  
     </div>
     <div class= "loginButtonContainer">
-    <button class= "loginButton">Iniciar Sesión</button>
-    <p>¿No tienes cuenta? <a href="#/signUp">Registrate aqui</a></p>
+        <button class= "loginButton">Iniciar Sesión</button>
+        <p>¿No tienes cuenta? <a href="#/signUp">Registrate aqui</a></p>
     </div> 
+    <footer class= "footer">
+       <p>©Copyright 2022</p>
+    </footer>
     `;
-  //document.innerHTML = welcomePage;
-  //document.getElementsByClassName('welcomeContainer').innerHTML += welcomePage;
-  divWelcome.innerHTML = welcomePage;
-  return divWelcome;
+  //divWelcome.innerHTML = welcomePage;
+  //document.getElementById('welcomeContainer').innerHTML += welcomePage;
+  //divWelcome.appendChild(welcomePage);
+  return welcomePage;
 };
