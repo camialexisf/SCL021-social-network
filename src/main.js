@@ -6,7 +6,7 @@ import { changeRoute } from './lib/router/router.js';
 // myFunction();
 // console.log(welcomeView);
 const init = () => {
-  window.location.href = 'http://localhost:3000/#/';
+ // window.location.href = 'http://localhost:3000/#/';
   const root = document.getElementById('root');
   root.innerHTML = welcomeView();
   window.addEventListener('hashchange', () => {
