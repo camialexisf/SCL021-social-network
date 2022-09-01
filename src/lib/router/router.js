@@ -10,7 +10,7 @@ export const changeRoute = (hash) => {
       // root.appendChild(divWelcome);
       // se debe importar el logo y el boton para iniciar sesion desde welcome.js
       break;
-    case '#/signUp':
+    case '#/logIn':
       root.innerHTML = logInView();
       break;
     default:

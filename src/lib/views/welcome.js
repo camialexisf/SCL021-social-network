@@ -18,7 +18,9 @@ export const welcomeView = () => {
         <img class= "welcomeLogoImagen" src="./images/tutipWithSubtitle.png">  
     </div>
     <div class= "welcomeLoginButtonContainer">
+    <a href="#/logIn" class= "buttonHref">
         <button class= "welcomeLoginButton">Iniciar Sesión</button>
+        </a>
         <p>¿No tienes cuenta? <a href="#/signUp">Registrate aquí</a></p>
     </div> 
     <footer class= "footer">
