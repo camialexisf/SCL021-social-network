@@ -108,7 +108,6 @@ a {
 }
 .buttonsContainer {
   width: 72%;
-  
   background-color: var(--dark-purple);
   margin: 2em;
   display: flex;
