@@ -2,7 +2,7 @@ console.log('login');
 export const logInView = () => {
   const divForm = document.createElement('div');
   divForm.setAttribute('id', 'formContainer');
-  divForm.className = 'formContainer';
+  divForm.classNnpmame = 'formContainer';
   const logIn = `
     <div class= "logoContainer">
     <img class= "logoImagen" src="./images/tutipLogo.png">  
