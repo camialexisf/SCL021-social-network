@@ -1,4 +1,6 @@
 console.log('login');
+
+
 export const logInView = () => {
   const divForm = document.createElement('div');
   divForm.setAttribute('id', 'formContainer');
@@ -10,21 +12,19 @@ export const logInView = () => {
  <div class="wrapper">
  <div class="moldalForm"> 
 <div class= "buttonsContainer">
+        <button class= "actionButton logInButton">Iniciar sesión</button>
         <button class= "actionButton signUpButton">Registrate</button>
-        <button class= "actionButton logInButton">Inicio sesión</button>
-        <button class= "moveButton">Registrate</button>
+        <button class= "moveButton">Iniciar sesión</button>
 </div> 
 <div class="userForm"> 
 <form action= "" class="form">
-<div class="inputGroup"<
+<div class="inputGroup">
        <input type= "email" placeholder="Correo">
-       <input type= "text" placeholder="Nombre y apellido">
        <input type= "password" placeholder="Contraseña">
-       <input type= "password" placeholder="Confirma tu contraseña">
        </div>
-       <button type="submit" class="submitButton">Registrarse</button>
+       <button type="submit" class="submitButton">Iniciar sesión</button>
        </form>
-       <p>¿Ya tienes cuenta? <a href="#/signUp">Ingresa aquí</a></p>
+       <p>¿Aún no tienes cuenta? <a href="#/signUp">Registrate aquí</a></p>
 </div>
 </div>
     <footer class= "footer">
@@ -33,5 +33,23 @@ export const logInView = () => {
 </div>
     
     `;
+
   return logIn;
 };
+
+//no cambia la clase dentro de la interpolacion *right butto//
+
+window.addEventListener('toggleButton', () => {
+
+  const signUpButton = logIn.querySelector(".signUpButton");
+  const logInButton = logIn.querySelector(".logInButton");
+  const moveButton = logIn.querySelector(".moveButton");
+  
+  signUpButton.addEventListener("click", ()=>{
+    moveButton.classList.add("rightButton");
+  });
+  
+  logInButton.addEventListener("click", ()=>{
+    moveButton.classList.remove("rightButton");
+  })
+  }); 
