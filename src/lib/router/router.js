@@ -1,19 +1,19 @@
-import { welcomeView } from '../views/welcome.js';
-import { logInView } from '../views/logIn.js';
+import welcomeView from '../views/welcome.js';
+import logInView from '../views/logIn.js';
+import toggleButton from '../components/buttons.js';
 
 export const changeRoute = (hash) => {
   const root = document.getElementById('root');
   switch (hash) {
     case '#/':
-      root.innerHTML = welcomeView();
-      // root.appendChild(welcomeView());
-      // root.appendChild(divWelcome);
-      // se debe importar el logo y el boton para iniciar sesion desde welcome.js
+       root.appendChild(welcomeView());
       break;
     case '#/logIn':
-      root.innerHTML = logInView();
+      root.appendChild(logInView());
+      root.appendChild(toggleButton());
       break;
     default:
-      root.innerHTML = error404();
+    console.log("404"); 
+    //root.innerHTML = error404();
   }
 };
