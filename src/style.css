@@ -14,7 +14,7 @@
 }
 
 * {
-  outline: 1px solid limegreen !important;
+  /*outline: 1px solid limegreen !important;*/
   margin: 0;
   padding: 0;
   font-family: var(--body-font);
@@ -44,6 +44,14 @@ body {
   width: 75%;
 }
 
+.logInLink {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-decoration: none;
+}
+
 .welcomeLoginButtonContainer {
   display: flex;
   justify-content: center;
@@ -68,24 +76,35 @@ p {
   font-weight: 600;
   color: var(--dark-grey);
   font-size: 4vw;
+  text-align: center;
 }
 a {
   color: var(--dark-purple);
   cursor: pointer;
 }
-.buttonHref{
+.buttonHref {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   text-decoration: none;
 }
-.footer {
+/* .footerView {
+  margin-top: 25%;
+} */
+
+.divFooter {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  position: absolute;
+}
+/* .footer {
   display: flex;
   justify-content: center;
   align-items: bottom;
-  margin-top: 5vh;
-}
+  margin-top: 50%;
+} */
 .logoImagen {
   width: 50%;
 }
@@ -95,7 +114,7 @@ a {
   align-items: center;
 }
 .wrapper {
-  margin: 10%;
+  margin-left: 10%;
   width: 80vw;
   /*height: 100vh;*/
   background-color: none;
@@ -104,7 +123,6 @@ a {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  
 }
 .modalForm {
   width: 80%;
@@ -125,7 +143,7 @@ a {
 }
 .actionButton {
   padding: 1em;
-  width: 50%;
+  /*width: 50%;*/
   outline: none;
   border: none;
   background-color: transparent;
@@ -162,18 +180,18 @@ a {
   flex-direction: column;
   margin: 2em 0.8em;
 }
-input{
+input {
   width: 100%;
   padding: 2vh;
-  border:none;
-  background:transparent;
-  border-bottom:0.3vh solid var(--dark-purple);
-  box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.20);
-  margin-bottom: 10%;
-  font-size: 1.2em;
+  border: none;
+  background: transparent;
+  border-bottom: 0.3vh solid var(--dark-purple);
+  box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.2);
+  margin-bottom: 5%;
+  font-size: 1em;
 }
 
-input:focus{
+input:focus {
   border-color: #fc83bb;
   outline: none;
 }
@@ -182,7 +200,7 @@ input:focus{
   width: 30%;
   padding: 1em;
 }
-.submitButton{
+.submitButton {
   border: 0.3vw solid var(--dark-purple);
   background: var(--light-purple);
   color: var(--dark-purple);
