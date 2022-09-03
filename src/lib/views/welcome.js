@@ -1,34 +1,33 @@
-// export default () => /*html*/`
-//     <img src=/src/images/tutip logo.png>
-//     <h2>hay que compartip</h2>
-// `;
+const welcomeView = () => {
+  const welcomeViewContainer = document.createElement("div");
+  const welcomeLogoContainer = document.createElement("div");
+    welcomeLogoContainer.className = "welcomeLogoContainer";
+  const welcomeLogoImagen = document.createElement("img");
+    welcomeLogoImagen.className = "welcomeLogoImagen";
+    welcomeLogoImagen.src = "./images/tutipWithSubtitle.png";
+  welcomeLogoContainer.appendChild(welcomeLogoImagen);
+  const welcomeLoginButtonContainer = document.createElement("div");
+  const welcomeLoginButton = document.createElement("button");
+    welcomeLoginButton.className = "welcomeLoginButton";
+  const logInLink = document.createElement("a");
+    logInLink.href = "#/logIn";
+    welcomeLoginButton.innerText = "Iniciar sesión";
+   logInLink.appendChild(welcomeLoginButton);
+  const signUpText = document.createElement("p");
+    signUpText.innerText = "¿No tienes cuenta?";
+  const signUpLink = document.createElement("a");
+    signUpLink.innerText = "Registrate aquí";
+    signUpLink.href = "#/signUp";
+   signUpText.appendChild(signUpLink);
+   welcomeLoginButtonContainer.appendChild(logInLink);
+   welcomeLoginButtonContainer.appendChild(signUpText);
+   welcomeViewContainer.appendChild(welcomeLogoContainer);
+   welcomeViewContainer.appendChild(welcomeLoginButtonContainer);
+  const footer = document.createElement("p");
+    footer.innerText = "©Copyright 2022";
+   welcomeViewContainer.appendChild(footer);
 
-console.log('aparezco');
-
-export const welcomeView = () => {
-  // const divWelcome = document.createElement('div');
-  // divWelcome.className = 'welcomeContainer';
-  // divWelcome.setAttribute('id','welcomeContainer');
-  // const divLogo = document.createElement('div');
-  // divLogo.className = 'logoContainer';
-  // const divLoginButton = document.createElement('div');
-  // divLoginButton.className = 'loginButtonContainer';
-  const welcomePage = ` 
-    <div class= "welcomeLogoContainer">
-        <img class= "welcomeLogoImagen" src="./images/tutipWithSubtitle.png">  
-    </div>
-    <div class= "welcomeLoginButtonContainer">
-    <a href="#/logIn" class= "buttonHref">
-        <button class= "welcomeLoginButton">Iniciar Sesión</button>
-        </a>
-        <p>¿No tienes cuenta? <a href="#/signUp">Registrate aquí</a></p>
-    </div> 
-    <footer class= "footer">
-       <p>©Copyright 2022</p>
-    </footer>
-    `;
-  //divWelcome.innerHTML = welcomePage;
-  //document.getElementById('welcomeContainer').innerHTML += welcomePage;
-  //divWelcome.appendChild(welcomePage);
-  return welcomePage;
+  return welcomeViewContainer;
 };
+
+export default welcomeView;
