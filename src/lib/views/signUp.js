@@ -1,78 +1,76 @@
-// import { toggleButton } from '../components/buttons.js';
-// console.log('login');
-
-// esta es la pantalla para iniciar sesion
-const logInView = () => {
-  // contenedor de la vista completa
-  const logInViewContainer = document.createElement('div');
+const signUpView = () => {
+  const signUpViewContainer = document.createElement('div');
   const divForm = document.createElement('div');
   divForm.setAttribute('id', 'formContainer');
   divForm.className = 'formContainer';
-  // contenedor del logo
   const logoContainer = document.createElement('div');
   logoContainer.className = 'logoContainer';
   const logoImagen = document.createElement('img');
   logoImagen.className = 'logoImagen';
   logoImagen.src = './images/tutipLogo.png';
   logoContainer.appendChild(logoImagen);
-  // contenedor del form
+
   const wrapper = document.createElement('div');
   wrapper.className = 'wrapper';
   const modalForm = document.createElement('div');
   modalForm.className = 'modalForm';
-  // contenedor de botones superiores
   const buttonsContainer = document.createElement('div');
   buttonsContainer.className = 'buttonsContainer';
   modalForm.appendChild(buttonsContainer);
-  // boton superior inicio sesion
+  const logInButtonLink = document.createElement('a');
+  logInButtonLink.href = '#/logIn';
   const logInButton = document.createElement('button');
   logInButton.className = 'actionButton';
   logInButton.classList.add('logInButton');
   logInButton.innerText = 'Iniciar Sesión';
-  buttonsContainer.appendChild(logInButton);
-  // boton superior para acceder a vista de registro
-  const signUpButtonLink = document.createElement('a');
-  signUpButtonLink.href = '#/signUp';
+  logInButtonLink.appendChild(logInButton);
+  buttonsContainer.appendChild(logInButtonLink);
   const signUpButton = document.createElement('button');
   signUpButton.className = 'actionButton';
   signUpButton.innerText = 'Registrate';
   signUpButton.classList.add('signUpButton');
-  signUpButtonLink.appendChild(signUpButton);
-  buttonsContainer.appendChild(signUpButtonLink);
-  // boton que se mueve **es el de color lavanda**
+  buttonsContainer.appendChild(signUpButton);
+
   const moveButton = document.createElement('button');
   moveButton.className = 'moveButton';
-  moveButton.innerText = 'Iniciar Sesión';
+  moveButton.classList.add('rightButton');
+  moveButton.innerText = 'Registrate';
   buttonsContainer.appendChild(moveButton);
-  // form que contiene los input para iniciar sesion
+
   const userForm = document.createElement('div');
   userForm.className = 'userForm';
   const form = document.createElement('form');
   form.className = 'form';
   const inputGroup = document.createElement('div');
   inputGroup.className = 'inputGroup';
+  const nameUser = document.createElement('input');
+  nameUser.setAttribute('type', 'name');
+  nameUser.setAttribute('placeholder', 'Ingresa tu nombre');
   const directionMail = document.createElement('input');
   directionMail.setAttribute('type', 'email');
   directionMail.setAttribute('placeholder', 'Correo');
   const password = document.createElement('input');
   password.setAttribute('type', 'password');
   password.setAttribute('placeholder', 'Contraseña');
-  // boton para iniciar sesion
+  const passwordConfirm = document.createElement('input');
+  passwordConfirm.setAttribute('type', 'password');
+  passwordConfirm.setAttribute('placeholder', 'Confirma tu contraseña');
   const submitButton = document.createElement('button');
   submitButton.className = 'submitButton';
-  submitButton.innerText = 'Iniciar Sesión';
+  submitButton.innerText = 'Registrate';
+  inputGroup.appendChild(nameUser);
   inputGroup.appendChild(directionMail);
   inputGroup.appendChild(password);
+  inputGroup.appendChild(passwordConfirm);
   form.appendChild(inputGroup);
   form.appendChild(submitButton);
   userForm.appendChild(form);
-
-  const signUpText = document.createElement('p');
-  signUpText.innerText = '¿No tienes cuenta?';
-  const signUpLink = document.createElement('a');
-  signUpLink.innerText = 'Registrate aquí';
-  signUpLink.href = '#/signUp';
-  signUpText.appendChild(signUpLink);
+  const logInText = document.createElement('p');
+  logInText.innerText = '¿Ya tienes cuenta?';
+  const logInLink = document.createElement('a');
+  logInLink.innerText = 'Ingresa aquí';
+  logInLink.href = '#/logIn';
+  logInText.appendChild(logInLink);
 
   const footer = document.createElement('p');
   footer.innerText = '©Copyright 2022';
@@ -80,10 +78,8 @@ const logInView = () => {
   wrapper.appendChild(modalForm);
   wrapper.appendChild(footer);
   modalForm.appendChild(userForm);
-  logInViewContainer.appendChild(logoContainer);
-  logInViewContainer.appendChild(wrapper);
-
-  return logInViewContainer;
+  signUpViewContainer.appendChild(logoContainer);
+  signUpViewContainer.appendChild(wrapper);
+  return signUpViewContainer;
 };
-
-export default logInView;
+export default signUpView;
