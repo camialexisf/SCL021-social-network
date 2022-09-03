@@ -12,7 +12,6 @@ const logInView = () => {
     logoImagen.className = "logoImagen";
     logoImagen.src = "./images/tutipLogo.png";
   logoContainer.appendChild(logoImagen);
-
   const wrapper = document.createElement("div");
     wrapper.className = "wrapper";
   const modalForm = document.createElement("div");
