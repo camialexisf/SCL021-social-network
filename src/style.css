@@ -14,21 +14,23 @@
 }
 
 * {
-  /*outline: 1px solid limegreen !important;*/
+  outline: 1px solid limegreen !important;
   margin: 0;
   padding: 0;
   font-family: var(--body-font);
   box-sizing: border-box;
+}
+root{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 body {
   /*height: 100%;
     width: 100%;*/
   background-color: var(--light-purple);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 .welcomeLogoContainer {
@@ -65,7 +67,7 @@ body {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   width: 75%;
   padding: 2.5%;
-  border-radius: 3vw;
+  border-radius: 20px;
   border-bottom: 1.2vw solid var(--dark-purple);
   font-size: 5vw;
   font-weight: 600;
@@ -81,6 +83,8 @@ p {
 a {
   color: var(--dark-purple);
   cursor: pointer;
+  padding:5% 3% 5% 3%;
+
 }
 .buttonHref {
   width: 100%;
@@ -89,16 +93,10 @@ a {
   align-items: center;
   text-decoration: none;
 }
-/* .footerView {
-  margin-top: 25%;
-} */
-
-.divFooter {
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  position: absolute;
+.footerView {
+  margin-top: 10%;
 }
+
 /* .footer {
   display: flex;
   justify-content: center;
@@ -125,33 +123,44 @@ a {
   flex-direction: column;
 }
 .modalForm {
-  width: 80%;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
+.userForm{
+  width: 80%;
+}
 .buttonsContainer {
-  width: 100%;
+  width: 65%;
+  /*padding:7% 10% 7% 10%;*/
   background-color: var(--dark-purple);
   margin-top: 2em;
   display: flex;
   justify-content: space-between;
   position: relative;
-  border-radius: 3vw;
+  border-radius: 10px;
   color: var(--light-purple);
+  white-space: nowrap;
 }
 .actionButton {
-  padding: 1em;
+  /* padding-top: 5%;
+  padding-bottom: 5%;
+  padding-left: 10%;
+  padding-right: 10%; */
+  /*padding: 3em;*/
   /*width: 50%;*/
   outline: none;
   border: none;
   background-color: transparent;
-  border-radius: 3vw;
+  border-radius: 10px;
   color: var(--light-purple);
-  font-size: 1em;
+  font-size: 2rem;
   font-weight: 600;
   cursor: pointer;
+  white-space: nowrap;
+  text-align: center;
 }
 .moveButton {
   position: absolute;
@@ -160,25 +169,32 @@ a {
   margin: 0.5%;
   border: none;
   outline: none;
-  border-radius: 3vw;
+  border-radius: 10px;
   background-color: var(--light-purple);
   color: var(--dark-purple);
-  font-size: 1em;
+  font-size: 2rem;
   font-weight: 600;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   transform: translateX(0);
   transition: all 0.2s ease-in-out;
+  white-space: nowrap;
+  text-align: center;
+}
+.buttonLink {
+  width: 50%;
+  text-align: center;
 }
 .rightButton {
   transform: translateX(98%);
-  transition: all 0.2s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 .inputGroup {
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin: 2em 0.8em;
+   margin-top: 2em; 
 }
 input {
   width: 100%;
@@ -188,7 +204,7 @@ input {
   border-bottom: 0.3vh solid var(--dark-purple);
   box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.2);
   margin-bottom: 5%;
-  font-size: 1em;
+  font-size: 2rem;
 }
 
 input:focus {
@@ -197,7 +213,7 @@ input:focus {
 }
 
 .submit {
-  width: 30%;
+  width: 100%;
   padding: 1em;
 }
 .submitButton {
@@ -208,14 +224,30 @@ input:focus {
   justify-content: center;
   align-items: center; */
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  width: 75%;
+  width: 100%;
   padding: 2.5%;
-  border-radius: 3vw;
+  border-radius: 0.5em;
   border-bottom: 1.2vw solid var(--dark-purple);
   font-size: 5vw;
   font-weight: 600;
-  margin: 1vh;
+  /*margin: 1vh;*/
   cursor: pointer;
-  margin-left: 13%;
-  margin-right: 10%;
+  text-align: center;
+  white-space: nowrap;
+  /*margin-right: 10%;*/
+}
+
+.googleButton{
+background: var(--light-purple);
+
+}
+
+.googleLogo {
+  background: var(--dark-purple);
+}
+.googleContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }

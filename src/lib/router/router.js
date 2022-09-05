@@ -4,6 +4,8 @@ import signUpView from '../views/signUp.js';
 import error404 from '../views/error404.js';
 // import toggleButton from '../components/buttons.js';
 
+//history push es api jeje
+
 export const changeRoute = (hash) => {
   const root = document.getElementById('root');
   switch (hash) {
