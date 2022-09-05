@@ -5,6 +5,7 @@
 const logInView = () => {
   // contenedor de la vista completa
   const logInViewContainer = document.createElement('div');
+
   const divForm = document.createElement('div');
   divForm.setAttribute('id', 'formContainer');
   divForm.className = 'formContainer';
@@ -33,6 +34,7 @@ const logInView = () => {
   // boton superior para acceder a vista de registro
   const signUpButtonLink = document.createElement('a');
   signUpButtonLink.href = '#/signUp';
+  signUpButtonLink.className = 'buttonLink';
   const signUpButton = document.createElement('button');
   signUpButton.className = 'actionButton';
   signUpButton.innerText = 'Registrate';
@@ -67,6 +69,19 @@ const logInView = () => {
   form.appendChild(submitButton);
   userForm.appendChild(form);
 
+  // boton inicio sesion google
+  const googleContainer = document.createElement('div');
+  googleContainer.className = 'googleContainer';
+  const googleLogo = document.createElement('div');
+  googleLogo.className = 'googleLogo';
+  const googleImage = document.createElement('img');
+  googleImage.src = './images/google.png';
+  const googleButton = document.createElement('button');
+  googleButton.className = 'googleButton';
+  googleButton.innerText = 'Continúa con google';  
+  googleContainer.appendChild(googleLogo);
+  googleContainer.appendChild(googleButton);
+
   const signUpText = document.createElement('p');
   signUpText.innerText = '¿No tienes cuenta?';
   const signUpLink = document.createElement('a');
@@ -82,6 +97,7 @@ const logInView = () => {
   modalForm.appendChild(userForm);
   logInViewContainer.appendChild(logoContainer);
   logInViewContainer.appendChild(wrapper);
+  logInViewContainer.appendChild(googleContainer);
 
   return logInViewContainer;
 };
