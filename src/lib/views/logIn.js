@@ -74,13 +74,21 @@ const logInView = () => {
   googleContainer.className = 'googleContainer';
   const googleLogo = document.createElement('div');
   googleLogo.className = 'googleLogo';
+  googleLogo.classList.add('totalButton');
   const googleImage = document.createElement('img');
   googleImage.src = './images/google.png';
+  googleImage.className = 'googleImage';
+
   const googleButton = document.createElement('button');
   googleButton.className = 'googleButton';
-  googleButton.innerText = 'Continúa con google';  
+  googleButton.innerText = 'Continúa con Google';
+  googleButton.classList.add('totalButton');
+  googleLogo.appendChild(googleImage);
   googleContainer.appendChild(googleLogo);
   googleContainer.appendChild(googleButton);
+  // buttonsContainer.appendChild(googleContainer);
+  // buttonsContainer.appendChild(googleButton);
+
 
   const signUpText = document.createElement('p');
   signUpText.innerText = '¿No tienes cuenta?';
@@ -93,11 +101,12 @@ const logInView = () => {
   footer.innerText = '©Copyright 2022';
   footer.className = 'footerView';
   wrapper.appendChild(modalForm);
+  wrapper.appendChild(googleContainer);
   wrapper.appendChild(footer);
   modalForm.appendChild(userForm);
-  logInViewContainer.appendChild(logoContainer);
+  logInViewContainer.appendChild(logoContainer)
   logInViewContainer.appendChild(wrapper);
-  logInViewContainer.appendChild(googleContainer);
+  
 
   return logInViewContainer;
 };
