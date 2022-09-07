@@ -52,15 +52,19 @@ const signUpView = () => {
   const nameUser = document.createElement('input');
   nameUser.setAttribute('type', 'name');
   nameUser.setAttribute('placeholder', 'Ingresa tu nombre');
+  nameUser.setAttribute('id', 'name');
   const directionMail = document.createElement('input');
   directionMail.setAttribute('type', 'email');
   directionMail.setAttribute('placeholder', 'Correo');
+  directionMail.setAttribute('id', 'email');
   const password = document.createElement('input');
   password.setAttribute('type', 'password');
   password.setAttribute('placeholder', 'Contraseña');
+  password.setAttribute('id', 'password');
   const passwordConfirm = document.createElement('input');
   passwordConfirm.setAttribute('type', 'password');
   passwordConfirm.setAttribute('placeholder', 'Confirma tu contraseña');
+  passwordConfirm.setAttribute('id', 'confirmPassword');
   const submitButton = document.createElement('button');
   // boton para iniciar sesion
   submitButton.className = 'submitButton';
