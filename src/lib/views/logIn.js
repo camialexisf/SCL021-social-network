@@ -78,7 +78,7 @@ const logInView = () => {
   googleImage.src = './images/google.png';
   const googleButton = document.createElement('button');
   googleButton.className = 'googleButton';
-  googleButton.innerText = 'Continúa con google';  
+  googleButton.innerText = 'Continúa con google';
   googleContainer.appendChild(googleLogo);
   googleContainer.appendChild(googleButton);
 

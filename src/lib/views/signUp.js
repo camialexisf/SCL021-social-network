@@ -4,7 +4,7 @@ const signUpView = () => {
   const divForm = document.createElement('div');
   divForm.setAttribute('id', 'formContainer');
   divForm.className = 'formContainer';
-  // contenedor del logo 
+  // contenedor del logo
   const logoContainer = document.createElement('div');
   logoContainer.className = 'logoContainer';
   const logoImagen = document.createElement('img');
@@ -17,7 +17,7 @@ const signUpView = () => {
   const modalForm = document.createElement('div');
   modalForm.className = 'modalForm';
   const buttonsContainer = document.createElement('div');
-  //contenedor de botones superiores
+  // contenedor de botones superiores
   buttonsContainer.className = 'buttonsContainer';
   modalForm.appendChild(buttonsContainer);
   // boton superior para acceder a la vista de inicio de sesion
@@ -65,8 +65,6 @@ const signUpView = () => {
   // boton para iniciar sesion
   submitButton.className = 'submitButton';
   submitButton.innerText = 'Registrate';
-
-  
 
   inputGroup.appendChild(nameUser);
   inputGroup.appendChild(directionMail);
