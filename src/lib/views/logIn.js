@@ -76,7 +76,7 @@ const logInView = () => {
   eyeContainer.appendChild(openEye);
   eyeContainer.appendChild(closedEye);
   inputGroup.appendChild(eyeContainer);
-  toggleVissibility();
+  //toggleVissibility();
   
   //   let inputPassword = document.getElementById('hiddenPassword');
   //   if (inputPassword.type === "password") {
@@ -90,7 +90,7 @@ const logInView = () => {
   const submitButton = document.createElement('button');
   submitButton.className = 'submitButton';
   submitButton.innerText = 'Iniciar Sesión';
-  inputGroup.appendChild(directionMail);
+  inputGroup.appendChild(email);
   inputGroup.appendChild(password);
   form.appendChild(inputGroup);
   form.appendChild(submitButton);
