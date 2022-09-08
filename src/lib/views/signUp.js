@@ -54,14 +54,14 @@ const signUpView = () => {
   nameUser.setAttribute('type', 'name');
   nameUser.setAttribute('placeholder', 'Ingresa tu nombre');
   nameUser.setAttribute('id', 'name');
-  const email = document.createElement('input');
-  email.setAttribute('type', 'email');
-  email.setAttribute('placeholder', 'Correo');
-  email.setAttribute('id', 'email');
-  const password = document.createElement('input');
-  password.setAttribute('type', 'password');
-  password.setAttribute('placeholder', 'Contraseña');
-  password.setAttribute('id', 'password');
+  const inputEmail = document.createElement('input');
+  inputEmail.setAttribute('type', 'email');
+  inputEmail.setAttribute('placeholder', 'Correo');
+  inputEmail.setAttribute('id', 'email');
+  const inputPassword = document.createElement('input');
+  inputPassword.setAttribute('type', 'password');
+  inputPassword.setAttribute('placeholder', 'Contraseña');
+  inputPassword.setAttribute('id', 'password');
   const passwordConfirm = document.createElement('input');
   passwordConfirm.setAttribute('type', 'password');
   passwordConfirm.setAttribute('placeholder', 'Confirma tu contraseña');
@@ -87,8 +87,8 @@ const signUpView = () => {
   
 
   inputGroup.appendChild(nameUser);
-  inputGroup.appendChild(email);
-  inputGroup.appendChild(password);
+  inputGroup.appendChild(inputEmail);
+  inputGroup.appendChild(inputPassword);
   inputGroup.appendChild(passwordConfirm);
   form.appendChild(inputGroup);
   form.appendChild(submitButton);
@@ -100,11 +100,20 @@ const signUpView = () => {
   logInLink.innerText = 'Ingresa aquí';
   logInLink.href = '#/logIn';
   logInText.appendChild(logInLink);
-
+  
+  // boton home
+  const homeButtonLink = document.createElement('a');
+  homeButtonLink.href = '#/';
+  homeButtonLink.className = 'homeButton';
+  const homeButton = document.createElement('button');
+  homeButton.innerText = 'home';
+  homeButtonLink.appendChild(homeButton);
+  
   const footer = document.createElement('p');
   footer.innerText = '©Copyright 2022';
   footer.className = 'footerView';
   wrapper.appendChild(modalForm);
+  wrapper.appendChild(homeButtonLink);
   wrapper.appendChild(footer);
   modalForm.appendChild(userForm);
   signUpViewContainer.appendChild(logoContainer);

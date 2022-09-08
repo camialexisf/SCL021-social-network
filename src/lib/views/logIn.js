@@ -1,5 +1,7 @@
-import { logInWithGoogle } from '../firebase/auth.js';
-import { toggleVissibility } from '../components/buttons.js';
+import { 
+  logInWithGoogle,
+  logInWithEmailAndPassword } from '../firebase/auth.js';
+//import { toggleVissibility } from '../components/buttons.js';
 // console.log('login');
 
 // esta es la pantalla para iniciar sesion
@@ -54,13 +56,14 @@ const logInView = () => {
   form.className = 'form';
   const inputGroup = document.createElement('div');
   inputGroup.className = 'inputGroup';
-  const email = document.createElement('input');
-  email.setAttribute('type', 'email');
-  email.setAttribute('placeholder', 'Correo');
-  const password = document.createElement('input');
-  password.setAttribute('type', 'password');
-  password.setAttribute('placeholder', 'Contraseña');
-  password.setAttribute('id', 'password');
+  const inputEmail = document.createElement('input');
+  inputEmail.setAttribute('type', 'email');
+  inputEmail.setAttribute('id', 'email');
+  inputEmail.setAttribute('placeholder', 'Correo');
+  const inputPassword = document.createElement('input');
+  inputPassword.setAttribute('type', 'password');
+  inputPassword.setAttribute('placeholder', 'Contraseña');
+  inputPassword.setAttribute('id', 'password');
 
   // span que contiene ojito para mostar y ocultar contraseña
   const eyeContainer = document.createElement('span');
@@ -86,12 +89,27 @@ const logInView = () => {
   //   }
   // };
 
+  const inputErrors = document.createElement('p');
+  inputErrors.innerText ='';
+  inputErrors.setAttribute('id', 'inputErrors');
+  modalForm.appendChild(inputErrors);
+
   // boton para iniciar sesion
   const submitButton = document.createElement('button');
   submitButton.className = 'submitButton';
   submitButton.innerText = 'Iniciar Sesión';
-  inputGroup.appendChild(email);
-  inputGroup.appendChild(password);
+ 
+  // info para iniciar sesion
+    submitButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    const email = document.getElementById('email').value;
+    console.log({ email });
+    const password = document.getElementById('password').value;
+    logInWithEmailAndPassword(email, password);
+ });
+
+  inputGroup.appendChild(inputEmail);
+  inputGroup.appendChild(inputPassword);
   form.appendChild(inputGroup);
   form.appendChild(submitButton);
   userForm.appendChild(form);
@@ -126,11 +144,21 @@ const logInView = () => {
   signUpLink.href = '#/signUp';
   signUpText.appendChild(signUpLink);
 
+  // boton home
+  const homeButtonLink = document.createElement('a');
+  homeButtonLink.href = '#/';
+  homeButtonLink.className = 'buttonLink';
+  const homeButton = document.createElement('button');
+  homeButton.className = 'homeButton';
+  homeButton.innerText = 'home';
+  homeButtonLink.appendChild(homeButton);
+
   const footer = document.createElement('p');
   footer.innerText = '©Copyright 2022';
   footer.className = 'footerView';
   wrapper.appendChild(modalForm);
-  wrapper.appendChild(googleContainer);
+  wrapper.appendChild(googleContainer); 
+  wrapper.appendChild(homeButtonLink);
   wrapper.appendChild(footer);
   modalForm.appendChild(userForm);
   logInViewContainer.appendChild(logoContainer)
