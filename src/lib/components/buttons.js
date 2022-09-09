@@ -1,11 +1,12 @@
 // import welcomeView from '../views/welcome.js';
 
 export const toggleVissibility = () => {
-  window.onload = function viewPassword() {
+  console.log('toggleVissibility');
+  try {
     const eyeContainer = document.getElementById('eyeContainer');
     console.log(eyeContainer);
     eyeContainer.addEventListener('click', () => {
-      const inputPassword = document.getElementById('hiddenPasword');
+      const inputPassword = document.getElementById('password');
       const openEye = document.getElementById('openEye');
       const closedEye = document.getElementById('closedEye');
       if (inputPassword.type === 'password') {
@@ -13,12 +14,14 @@ export const toggleVissibility = () => {
         openEye.style.display = 'block';
         closedEye.style.display = 'none';
       } else {
-        inputPassword.type = 'text';
+        inputPassword.type = 'password';
         openEye.style.display = 'none';
         closedEye.style.display = 'block';
       }
     });
-  };
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 // export const toggleButton = () => {

@@ -1,3 +1,4 @@
+import { registerEmailPassword } from '../firebase/auth.js';
 const signUpView = () => {
   // contenedor de la vista completa
   const signUpViewContainer = document.createElement('div');
@@ -53,10 +54,10 @@ const signUpView = () => {
   nameUser.setAttribute('type', 'name');
   nameUser.setAttribute('placeholder', 'Ingresa tu nombre');
   nameUser.setAttribute('id', 'name');
-  const directionMail = document.createElement('input');
-  directionMail.setAttribute('type', 'email');
-  directionMail.setAttribute('placeholder', 'Correo');
-  directionMail.setAttribute('id', 'email');
+  const email = document.createElement('input');
+  email.setAttribute('type', 'email');
+  email.setAttribute('placeholder', 'Correo');
+  email.setAttribute('id', 'email');
   const password = document.createElement('input');
   password.setAttribute('type', 'password');
   password.setAttribute('placeholder', 'Contraseña');
@@ -65,13 +66,26 @@ const signUpView = () => {
   passwordConfirm.setAttribute('type', 'password');
   passwordConfirm.setAttribute('placeholder', 'Confirma tu contraseña');
   passwordConfirm.setAttribute('id', 'confirmPassword');
-  const submitButton = document.createElement('button');
-  // boton para iniciar sesion
+  const submitButton = document.createElement('input');
+  submitButton.setAttribute('type', 'submit');
+  submitButton.setAttribute('id', 'submitButton');
+  submitButton.setAttribute('value', 'Registrate');
+  // submitButton.setAttribute('onclick', signUp());
+  // boton para crear cuenta
   submitButton.className = 'submitButton';
-  submitButton.innerText = 'Registrate';
+  // submitButton.innerText = 'Registrate';
+
+  // info para registrar usuario
+  submitButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('confirmPassword').value;
+    registerEmailPassword(email, password, confirmPassword);
+  });
 
   inputGroup.appendChild(nameUser);
-  inputGroup.appendChild(directionMail);
+  inputGroup.appendChild(email);
   inputGroup.appendChild(password);
   inputGroup.appendChild(passwordConfirm);
   form.appendChild(inputGroup);

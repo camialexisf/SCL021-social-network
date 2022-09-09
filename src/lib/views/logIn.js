@@ -1,4 +1,5 @@
-// import { toggleVissibility } from '../components/buttons.js';
+import { logInWithGoogle } from '../firebase/auth.js';
+import { toggleVissibility } from '../components/buttons.js';
 // console.log('login');
 
 // esta es la pantalla para iniciar sesion
@@ -71,12 +72,10 @@ const logInView = () => {
   openEye.src = './images/openEye.png';
   closedEye.setAttribute('id', 'closedEye');
   openEye.setAttribute('id', 'openEye');
-  // eyeContainer.onclick = toggleVissibility();
   eyeContainer.appendChild(openEye);
   eyeContainer.appendChild(closedEye);
   inputGroup.appendChild(eyeContainer);
   // toggleVissibility();
-
   //   let inputPassword = document.getElementById('hiddenPassword');
   //   if (inputPassword.type === "password") {
   //     inputPassword.type = "text";
@@ -89,7 +88,7 @@ const logInView = () => {
   const submitButton = document.createElement('button');
   submitButton.className = 'submitButton';
   submitButton.innerText = 'Iniciar Sesión';
-  // inputGroup.appendChild(directionEmail);
+  inputGroup.appendChild(email);
   inputGroup.appendChild(password);
   form.appendChild(inputGroup);
   form.appendChild(submitButton);
@@ -114,6 +113,9 @@ const logInView = () => {
   googleContainer.appendChild(googleButton);
   // buttonsContainer.appendChild(googleContainer);
   // buttonsContainer.appendChild(googleButton);
+
+  // inicio de sesion google
+  googleButton.addEventListener('click', logInWithGoogle);
 
   const signUpText = document.createElement('p');
   signUpText.innerText = '¿No tienes cuenta?';
