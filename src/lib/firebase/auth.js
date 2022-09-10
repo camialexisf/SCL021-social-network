@@ -23,9 +23,9 @@ const registerEmailPassword = (email, password, confirmPassword) => {
     })
     .catch((error) => {
       const errorCode = error.code;
-      // const errorMessage = error.message;
+      const errorMessage = error.message;
       // console.log(user);
-      return errorCode;
+      // return errorCode;
     });
 };
 
@@ -34,6 +34,8 @@ const logInWithGoogle = () => {
   signInWithPopup(auth, provider)
     .then((result) => {
       console.log('exito!', result);
+      window.location.hash = '#/error404';
+
       // This gives you a Google Access Token. You can use it to access the Google API.
       const credential = GoogleAuthProvider.credentialFromResult(result);
       // const token = credential.accessToken;
@@ -56,13 +58,33 @@ const logInWithGoogle = () => {
     });
 };
 
-// export function logIn(email, password) {
-//   const auth = getAuth();
-//    return signInWithEmailAndPassword(auth, email, password);
-// }
-// export function loginGoogle() {
-//   const auth = getAuth();
-//    return signInWithPopup(auth, provider);
-//  }
+const logInWithEmailAndPassword = (email, password) => {
+  console.log(email);
+  console.log(password);
+  signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      console.log('sesion iniciada con exito!');
+      window.location.hash = '#/error404';
+      // Signed in
+      const user = userCredential.user;
+      // ...
+    })
 
-// export { app, auth, registerEmailPassword, logInWithGoogle };
+    .catch((error) => {
+      function inputErrors() {
+        const inputErrors = document.getElementById('inputErrors');
+        const email = document.getElementById('email').value; // descansar hoy :D. Hacer la mimicion
+      }
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(error);
+    });
+};
+
+export {
+  app,
+  auth,
+  registerEmailPassword,
+  logInWithGoogle,
+  logInWithEmailAndPassword,
+};

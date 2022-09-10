@@ -22,10 +22,20 @@ const welcomeView = () => {
   signUpLink.innerText = ' Registrate aquí';
   signUpLink.href = '#/signUp';
   signUpText.appendChild(signUpLink);
+
+  // NO OLVIDAR QUITAR ESTE BOTON!
+  const homeButtonLink = document.createElement('a');
+  homeButtonLink.href = '#/';
+  homeButtonLink.className = 'homeButton';
+  const homeButton = document.createElement('button');
+  homeButton.innerText = 'home';
+  homeButtonLink.appendChild(homeButton);
+
   welcomeLoginButtonContainer.appendChild(logInLink);
   welcomeLoginButtonContainer.appendChild(signUpText);
   welcomeViewContainer.appendChild(welcomeLogoContainer);
   welcomeViewContainer.appendChild(welcomeLoginButtonContainer);
+  welcomeViewContainer.appendChild(homeButtonLink);
 
   const footer = document.createElement('p');
   footer.innerText = '©Copyright 2022';
