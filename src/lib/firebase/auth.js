@@ -4,8 +4,9 @@ import {
   signInWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
+  signOut,
 } from 'https://www.gstatic.com/firebasejs/9.9.4/firebase-auth.js';
-
+// console.log('error');
 import { app } from './firebase.js';
 
 const auth = getAuth();
@@ -14,7 +15,7 @@ const provider = new GoogleAuthProvider();
 const registerEmailPassword = (email, password, confirmPassword) => {
   createUserWithEmailAndPassword(auth, email, password, confirmPassword)
     .then((userCredential) => {
-      window.location.hash = '#/error404';
+      window.location.hash = '#/home';
       // Signed in
       const user = userCredential.user;
       emailVerification(auth);
@@ -22,19 +23,20 @@ const registerEmailPassword = (email, password, confirmPassword) => {
       return user;
     })
     .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
+      // const errorCode = error.code;
+      // const errorMessage = error.message;
       // console.log(user);
-      // return errorCode;
+      //
+      return errorCode;
     });
 };
 
 const logInWithGoogle = () => {
-  console.log('ejecutando Login con Google');
+  // console.log('ejecutando Login con Google');
   signInWithPopup(auth, provider)
     .then((result) => {
-      console.log('exito!', result);
-      window.location.hash = '#/error404';
+      // console.log('exito!', result);
+      window.location.hash = '#/home';
 
       // This gives you a Google Access Token. You can use it to access the Google API.
       const credential = GoogleAuthProvider.credentialFromResult(result);
@@ -45,7 +47,7 @@ const logInWithGoogle = () => {
       return credential;
     })
     .catch((error) => {
-      console.log(error);
+      // console.log(error);
       // Handle Errors here.
       const errorCode = error.code;
       // const errorMessage = error.message;
@@ -59,11 +61,11 @@ const logInWithGoogle = () => {
 };
 
 const logInWithEmailAndPassword = (email, password) => {
-  console.log(email);
-  console.log(password);
+  // console.log(email);
+  // console.log(password);
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      console.log('sesion iniciada con exito!');
+      // console.log('sesion iniciada con exito!');
       window.location.hash = '#/error404';
       // Signed in
       const user = userCredential.user;
@@ -72,12 +74,22 @@ const logInWithEmailAndPassword = (email, password) => {
 
     .catch((error) => {
       function inputErrors() {
-        const inputErrors = document.getElementById('inputErrors');
-        const email = document.getElementById('email').value; // descansar hoy :D. Hacer la mimicion
+        const inputError = document.getElementById('inputErrors');
+        const email = document.getElementById('email').value;
       }
       const errorCode = error.code;
       const errorMessage = error.message;
+    });
+};
+
+const logOut = async () => {
+  signOut(auth)
+    .then(() => {
+      console.log('Saliendo...');
+    })
+    .catch((error) => {
       console.log(error);
+      // An error happened.
     });
 };
 
@@ -87,4 +99,5 @@ export {
   registerEmailPassword,
   logInWithGoogle,
   logInWithEmailAndPassword,
+  logOut,
 };

@@ -1,4 +1,5 @@
 import { registerEmailPassword } from '../firebase/auth.js';
+
 const signUpView = () => {
   // contenedor de la vista completa
   const signUpViewContainer = document.createElement('div');

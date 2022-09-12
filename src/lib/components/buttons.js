@@ -1,10 +1,8 @@
-// import welcomeView from '../views/welcome.js';
+// import { logOut } from '../firebase/auth.js';
 
 export const toggleVissibility = () => {
-  console.log('toggleVissibility');
   try {
     const eyeContainer = document.getElementById('eyeContainer');
-    console.log(eyeContainer);
     eyeContainer.addEventListener('click', () => {
       const inputPassword = document.getElementById('password');
       const openEye = document.getElementById('openEye');
@@ -23,6 +21,18 @@ export const toggleVissibility = () => {
     console.log(error);
   }
 };
+
+/* export const closeSession = () => {
+  try {
+    const clossedSession = document.getElementById('logOut');
+    console.log(clossedSession);
+    clossedSession.addEventListener('click', () => {
+      logOut();
+    });
+  } catch (error) {
+    console.log(error);
+  }
+}; */
 
 // export const toggleButton = () => {
 //     window.addEventListener('load', () => {
