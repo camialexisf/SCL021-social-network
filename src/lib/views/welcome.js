@@ -1,5 +1,6 @@
 const welcomeView = () => {
   const welcomeViewContainer = document.createElement('div');
+  welcomeViewContainer.className = 'welcomeviewContainer';
   const welcomeLogoContainer = document.createElement('div');
   welcomeLogoContainer.className = 'welcomeLogoContainer';
   const welcomeLogoImagen = document.createElement('img');
