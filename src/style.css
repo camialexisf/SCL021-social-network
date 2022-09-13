@@ -84,8 +84,7 @@ p {
 a {
   color: var(--dark-purple);
   cursor: pointer;
-  padding:5% 3% 5% 3%;
-
+  text-align: center;
 }
 .buttonHref {
   width: 100%;
@@ -193,6 +192,9 @@ display: none;
 .buttonLink {
   width: 50%;
   text-align: center;
+  color: var(--dark-purple);
+  cursor: pointer;
+  padding:5% 3% 5% 3%;
 }
 .rightButton {
   transform: translateX(98%);
@@ -317,6 +319,26 @@ margin-bottom: 1vh; */
   margin-right: 25%;
 }
 
+.wallView{
+  background: var(--light-grey);
+  max-height: max-content;
+}
+
+.navegationBar{
+display: flex;
+max-height: 30%;
+justify-content: center;
+flex-direction: row;
+position: fixed;
+bottom: 0;
+background: var(--light-purple);
+}
+
+.navegationButton{
+max-width: 35%;
+}
+
+
 @media (min-width: 900px) {
 .welcomeviewContainer{
   display: grid;
@@ -342,5 +364,4 @@ margin-bottom: 1vh; */
 }
 p{
   font-size: 2vw;
-}
-}
+}}
