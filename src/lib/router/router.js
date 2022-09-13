@@ -2,10 +2,11 @@ import welcomeView from '../views/welcome.js';
 import logInView from '../views/logIn.js';
 import signUpView from '../views/signUp.js';
 import error404 from '../views/error404.js';
+import homeView from '../views/home.js';
 import { toggleVissibility } from '../components/buttons.js';
 // import toggleButton from '../components/buttons.js';
 
-//history push es api jeje
+// history push es api jeje
 
 export const changeRoute = (hash) => {
   const root = document.getElementById('root');
@@ -16,10 +17,13 @@ export const changeRoute = (hash) => {
     case '#/logIn':
       root.appendChild(logInView());
       toggleVissibility();
-      // root.appendChild(toggleButton());
       break;
     case '#/signUp':
       root.appendChild(signUpView());
+      break;
+    case '#/home':
+      root.appendChild(homeView());
+      // closeSession();
       break;
     default:
       // console.log('404');

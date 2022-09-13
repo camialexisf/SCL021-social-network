@@ -1,7 +1,8 @@
-import { 
+import {
   logInWithGoogle,
-  logInWithEmailAndPassword } from '../firebase/auth.js';
-//import { toggleVissibility } from '../components/buttons.js';
+  logInWithEmailAndPassword,
+} from '../firebase/auth.js';
+// import { toggleVissibility } from '../components/buttons.js';
 // console.log('login');
 
 // esta es la pantalla para iniciar sesion
@@ -75,12 +76,10 @@ const logInView = () => {
   openEye.src = './images/openEye.png';
   closedEye.setAttribute('id', 'closedEye');
   openEye.setAttribute('id', 'openEye');
-  
   eyeContainer.appendChild(openEye);
   eyeContainer.appendChild(closedEye);
   inputGroup.appendChild(eyeContainer);
-  //toggleVissibility();
-  
+  // toggleVissibility();
   //   let inputPassword = document.getElementById('hiddenPassword');
   //   if (inputPassword.type === "password") {
   //     inputPassword.type = "text";
@@ -90,7 +89,7 @@ const logInView = () => {
   // };
 
   const inputErrors = document.createElement('p');
-  inputErrors.innerText ='';
+  inputErrors.innerText = '';
   inputErrors.setAttribute('id', 'inputErrors');
   modalForm.appendChild(inputErrors);
 
@@ -98,15 +97,15 @@ const logInView = () => {
   const submitButton = document.createElement('button');
   submitButton.className = 'submitButton';
   submitButton.innerText = 'Iniciar Sesión';
- 
+
   // info para iniciar sesion
-    submitButton.addEventListener('click', (e) => {
+  submitButton.addEventListener('click', (e) => {
     e.preventDefault();
     const email = document.getElementById('email').value;
     console.log({ email });
     const password = document.getElementById('password').value;
     logInWithEmailAndPassword(email, password);
- });
+  });
 
   inputGroup.appendChild(inputEmail);
   inputGroup.appendChild(inputPassword);
@@ -134,7 +133,7 @@ const logInView = () => {
   // buttonsContainer.appendChild(googleContainer);
   // buttonsContainer.appendChild(googleButton);
 
-  //inicio de sesion google
+  // inicio de sesion google
   googleButton.addEventListener('click', logInWithGoogle);
 
   const signUpText = document.createElement('p');
@@ -157,19 +156,14 @@ const logInView = () => {
   footer.innerText = '©Copyright 2022';
   footer.className = 'footerView';
   wrapper.appendChild(modalForm);
-  wrapper.appendChild(googleContainer); 
+  wrapper.appendChild(googleContainer);
   wrapper.appendChild(homeButtonLink);
   wrapper.appendChild(footer);
   modalForm.appendChild(userForm);
-  logInViewContainer.appendChild(logoContainer)
+  logInViewContainer.appendChild(logoContainer);
   logInViewContainer.appendChild(wrapper);
- 
 
   return logInViewContainer;
-
 };
-
-
-
 
 export default logInView;

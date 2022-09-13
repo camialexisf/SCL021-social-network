@@ -1,11 +1,12 @@
 import { registerEmailPassword } from '../firebase/auth.js';
+
 const signUpView = () => {
   // contenedor de la vista completa
   const signUpViewContainer = document.createElement('div');
   const divForm = document.createElement('div');
   divForm.setAttribute('id', 'formContainer');
   divForm.className = 'formContainer';
-  // contenedor del logo 
+  // contenedor del logo
   const logoContainer = document.createElement('div');
   logoContainer.className = 'logoContainer';
   const logoImagen = document.createElement('img');
@@ -18,7 +19,7 @@ const signUpView = () => {
   const modalForm = document.createElement('div');
   modalForm.className = 'modalForm';
   const buttonsContainer = document.createElement('div');
-  //contenedor de botones superiores
+  // contenedor de botones superiores
   buttonsContainer.className = 'buttonsContainer';
   modalForm.appendChild(buttonsContainer);
   // boton superior para acceder a la vista de inicio de sesion
@@ -75,7 +76,6 @@ const signUpView = () => {
   submitButton.className = 'submitButton';
   // submitButton.innerText = 'Registrate';
 
-
   // info para registrar usuario
   submitButton.addEventListener('click', (e) => {
     e.preventDefault();
@@ -83,8 +83,7 @@ const signUpView = () => {
     const password = document.getElementById('password').value;
     const confirmPassword = document.getElementById('confirmPassword').value;
     registerEmailPassword(email, password, confirmPassword);
- });
-  
+  });
 
   inputGroup.appendChild(nameUser);
   inputGroup.appendChild(inputEmail);
@@ -100,15 +99,16 @@ const signUpView = () => {
   logInLink.innerText = 'Ingresa aquí';
   logInLink.href = '#/logIn';
   logInText.appendChild(logInLink);
-  
+
   // boton home
   const homeButtonLink = document.createElement('a');
   homeButtonLink.href = '#/';
-  homeButtonLink.className = 'homeButton';
+  homeButtonLink.className = 'buttonLink';
   const homeButton = document.createElement('button');
+  homeButton.className = 'homeButton';
   homeButton.innerText = 'home';
   homeButtonLink.appendChild(homeButton);
-  
+
   const footer = document.createElement('p');
   footer.innerText = '©Copyright 2022';
   footer.className = 'footerView';
