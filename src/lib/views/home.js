@@ -4,14 +4,16 @@ const homeView = () => {
   // contenedor de la vista completa del muro
   const wallViewContainer = document.createElement('div');
   wallViewContainer.className = 'wallView';
-// logo tutip
+  // logo tutip
   const logoImagen = document.createElement('img');
-  logoImagen.className = 'logoImagen';
+  logoImagen.className = 'logoImagenHome';
   logoImagen.src = './images/tutipLogo.png';
   wallViewContainer.appendChild(logoImagen);
 
 
   // barra de navegación de abajo.
+  const navegationBarDiv = document.createElement('div');
+  navegationBarDiv.className = 'navegationBarDiv';
   const navegationBar = document.createElement('nav');
   navegationBar.className = 'navegationBar';
 
@@ -72,7 +74,8 @@ const homeView = () => {
   navegationBar.appendChild(addPostButtonLink);
   navegationBar.appendChild(savedPostButtonLink);
   navegationBar.appendChild(profileButtonLink);
-  wallViewContainer.appendChild(navegationBar);
+  navegationBarDiv.appendChild(navegationBar);
+  wallViewContainer.appendChild(navegationBarDiv);
 
   logOutButton.addEventListener('click', (e) => {
     e.preventDefault();
