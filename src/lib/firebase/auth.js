@@ -8,7 +8,16 @@ import {
   onAuthStateChanged
 } from 'https://www.gstatic.com/firebasejs/9.9.4/firebase-auth.js';
 
-import { getFirestore, collection, addDoc, getDocs, doc, deleteDoc } from 'https://www.gstatic.com/firebasejs/9.9.4/firebase-firestore.js';
+import { 
+  getFirestore, 
+  collection, 
+  addDoc, 
+  getDocs, 
+  doc, 
+  deleteDoc,
+ orderBy,
+ Timestamp,
+ query } from 'https://www.gstatic.com/firebasejs/9.9.4/firebase-firestore.js';
 
 // console.log('error');
 import { app } from './firebase.js';
@@ -95,6 +104,7 @@ const observator = () => {
       window.location.hash = '#/home';
       console.log('existe usuario activo');
       const uid = user.uid;
+      console.log('uid del usuario en observador: ', uid)
     } else {
       // User is signed out
       window.location.hash = '#/';
@@ -124,8 +134,11 @@ const createNewPost = async (titleValue, postValue, placeValue) => {
     const docRef = await addDoc(collection(db, "tips"), {
       text: postValue,
       title: titleValue,
-      place: placeValue
+      place: placeValue,
+      datePost: Timestamp.fromDate(new Date()),
+      uid: auth.currentUser.uid
     }); 
+    console.log('el user es: ', docRef.uid);
     console.log("Document written with ID: ", docRef.id);
     document.getElementById('titlePost').value = '';
     document.getElementById('postArea').value = '';
@@ -137,11 +150,11 @@ const createNewPost = async (titleValue, postValue, placeValue) => {
 
 const printPost = async () => {
   const postDiv = document.getElementById('postContainer');
-  //const textPost = document.getElementById('textPostContainer');
-  // const titlePost = document.getElementById('titlePostContainer');
-  const querySnapshot = await getDocs(collection(db, "tips"));
+    //Crear una variable que almacene todos los docs ordenados para luego pasarla a querySnapshot
+    const allPosts = query(collection(db, "tips"), orderBy("datePost", "desc"));
+  const querySnapshot = await getDocs(allPosts);
   querySnapshot.forEach((doc) => {
-    // console.log(`${doc.id} => ${doc.data()}`);
+     //usar un condicional que diga que el post se muestre de una forma SI el usuario es el mismo que hizo el post 
     window.location.hash = '#/home';
     //crear un div para cada post
     const postBox = document.createElement('div');
@@ -161,7 +174,7 @@ const printPost = async () => {
     postBox.appendChild(titlePost);
     postBox.appendChild(descriptionPost);
     postDiv.appendChild(postBox);
-    // console.log('solito' + postBox);
+    console.log(postBox);
     /*const trashCanButton = postDiv.querySelectorAll('#trashCan');
     //console.log(trashCanButton);
     trashCanButton.forEach((element) =>{ 
@@ -172,11 +185,11 @@ const printPost = async () => {
     console.log(element)
     });
   });*/
-const postId = doc.id ;
+const postId = doc.id;
     trashCan.addEventListener('click', (e) => {
       e.target.getAttribute(trashCan.id);
-      console.log(e.target);
-      deletePost(e.target);
+      console.log(e.target.id);
+      deletePost(e.target.id);
     });
 
     return postDiv;
@@ -193,8 +206,8 @@ const postId = doc.id ;
 
 // borrar post
 
-const deletePost = async () => {
-    await deleteDoc(doc(db, "tips", doc.id));
+const deletePost = async (id) => {
+    await deleteDoc(doc(db, "tips", id));
   console.log('esta es la funcion de delete post');
 
 }; 
