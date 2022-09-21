@@ -32,7 +32,7 @@ export const changeRoute = (hash) => {
       break;
     case '#/createPost':
     root.appendChild(createPostView());
-    deletePost();
+    //deletePost();
      break;
     default:
       // console.log('404');
