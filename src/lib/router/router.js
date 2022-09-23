@@ -6,7 +6,7 @@ import homeView from '../views/home.js';
 import createPostView from '../views/createPost.js';
 import { toggleVissibility } from '../components/buttons.js';
 import { printPost,
-deletePost } from '../firebase/auth.js';
+editPost } from '../firebase/auth.js';
 
 
 // import toggleButton from '../components/buttons.js';
@@ -32,7 +32,7 @@ export const changeRoute = (hash) => {
       break;
     case '#/createPost':
     root.appendChild(createPostView());
-    //deletePost();
+    editPost();
      break;
     default:
       // console.log('404');

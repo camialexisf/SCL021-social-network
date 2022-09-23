@@ -1,4 +1,4 @@
-import { createNewPost, printPost } from "../firebase/auth.js";
+import { createNewPost, printPost, editPost} from "../firebase/auth.js";
 const createPostView = () => {
 
     const createPostViewContainer = document.createElement('div');
@@ -43,7 +43,7 @@ const createPostView = () => {
         printPost();
         console.log('post creado');
       });
-    
+    editPost()
     return createPostViewContainer;
 };
 
