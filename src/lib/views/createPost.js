@@ -3,12 +3,64 @@ const createPostView = () => {
 
     const createPostViewContainer = document.createElement('div');
     createPostViewContainer.className = 'createPostView';
+    const createPostViewHeader = document.createElement('div');
+    createPostViewHeader.className = 'createPostViewHeader';
+    const createPostViewTitle = document.createElement('h2');
+    createPostViewTitle.className = 'createPostViewTitle';
+    createPostViewTitle.innerText = 'Nuevo Tip';
+    const backButtonLink = document.createElement('a');
+    backButtonLink.className = 'backButton';
+    backButtonLink.href = '#/home';
+    const backButton = document.createElement('img');
+    backButton.src = './images/back.png';
+    backButton.className = 'backButton';
+    backButtonLink.appendChild(backButton);
+
+    const postClassContainer = document.createElement('div');
+    postClassContainer.className = 'postClassContainer';
+    const discountsClass = document.createElement('div');
+    discountsClass.className = 'discountsClass';
+    const discountClassImage = document.createElement('img');
+    discountClassImage.src = './images/discount.png';
+    const placesClass = document.createElement('placesClass');
+    placesClass.className = 'placesClass';
+    const placesClassImage = document.createElement('img');
+    placesClassImage.src = './images/place.png';
+    const foodClass = document.createElement('div');
+    foodClass.className = 'foodClass';
+    const foodClassImage = document.createElement('img');
+    foodClassImage.src = './images/comer.png';
+    const lifeHacksClass = document.createElement('div');
+    lifeHacksClass.className = 'lifeHacksClass';
+    const lifeHacksClassImage = document.createElement('img');
+    lifeHacksClassImage.src = './images/bombilla.png';
+    const eventsClass = document.createElement('div');
+    eventsClass.className = 'eventsClass';
+    const eventsClassImage = document.createElement('img');
+    eventsClassImage.src = './images/calendario.png';
+    const picadasClass = document.createElement('div');
+    picadasClass.className = 'picadasClass';    
+    const picadasClassImage = document.createElement('img');
+    picadasClassImage.src = './images/picada.png';
     const postArea = document.createElement('textArea');
     const newPostFormContainer = document.createElement('div');
     newPostFormContainer.className = 'newPostFormContainer';
     postArea.className = 'postArea';
     postArea.setAttribute('id', 'postArea');
     postArea.setAttribute('placeholder', 'Cuentanos tutip :)');
+    discountsClass.appendChild(discountClassImage);
+    placesClass.appendChild(placesClassImage);
+    foodClass.appendChild(foodClassImage);
+    lifeHacksClass.appendChild(lifeHacksClassImage);
+    eventsClass.appendChild(eventsClassImage);
+    picadasClass.appendChild(picadasClassImage);
+    postClassContainer.appendChild(discountsClass);
+    postClassContainer.appendChild(placesClass);
+    postClassContainer.appendChild(foodClass);
+    postClassContainer.appendChild(lifeHacksClass);
+    postClassContainer.appendChild(eventsClass);
+    postClassContainer.appendChild(picadasClass);
+
 
     const formContainer = document.createElement('form');
     formContainer.className = 'formContainer';
@@ -31,6 +83,10 @@ const createPostView = () => {
     formContainer.appendChild(placePost);
     formContainer.appendChild(newPostButton);
 
+    createPostViewHeader.appendChild(backButtonLink);
+    createPostViewHeader.appendChild(createPostViewTitle);
+    createPostViewContainer.appendChild(createPostViewHeader);
+    createPostViewContainer.appendChild(postClassContainer);
     createPostViewContainer.appendChild(newPostFormContainer);
 
     newPostButton.addEventListener('click', (e) => {
