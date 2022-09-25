@@ -160,7 +160,7 @@ const logInView = () => {
   homeButtonLink.appendChild(homeButton);*/
 
   const footer = document.createElement('p');
-  footer.innerText = '©Copyright 2022';
+  footer.innerText = '©Copyright 2022 Creada por Cami F. Fran R. y Romi V.';
   footer.className = 'footer';
   wrapper.appendChild(modalForm);
   wrapper.appendChild(googleContainer);
