@@ -1,8 +1,10 @@
 import { createNewPost, printPost, editPost} from "../firebase/auth.js";
+// Gran contenedor con la funcion de crear posts. Es dinamico. 
 const createPostView = () => {
 
     const createPostViewContainer = document.createElement('div');
     createPostViewContainer.className = 'createPostView';
+    // Esto son los botones retroceder y cerrar al crear un nuevo TIP. 
     const createPostViewHeader = document.createElement('div');
     createPostViewHeader.className = 'createPostViewHeader';
     const createPostViewTitle = document.createElement('h2');
@@ -88,6 +90,9 @@ const createPostView = () => {
     newPostButton.setAttribute('id','newPostButton');
     newPostButton.innerText = 'Subir Post';
 
+    /*const editPostButton = document.getElementById('newPostButton');
+    console.log('que es:' + editPostButton);
+    editPost(editPostButton);*/
 
     newPostFormContainer.appendChild(formContainer);
     formContainer.appendChild(titlePost);
@@ -106,12 +111,12 @@ const createPostView = () => {
         const titleValue = document.getElementById('titlePost').value;
         const postValue = document.getElementById('postArea').value;
         const placeValue = document.getElementById('placePost').value;
-
         createNewPost(titleValue, postValue, placeValue);
-        printPost();
+        //editPost();
+        /*printPost();*/
         console.log('post creado');
       });
-    editPost()
+
     return createPostViewContainer;
 };
 

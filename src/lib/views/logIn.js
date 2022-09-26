@@ -1,6 +1,6 @@
 import {
   logInWithGoogle,
-  logInWithEmailAndPassword,
+  logInWithEmailAndPassword
 } from '../firebase/auth.js';
 // import { toggleVissibility } from '../components/buttons.js';
 // console.log('login');
