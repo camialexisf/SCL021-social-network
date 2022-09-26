@@ -56,6 +56,33 @@ navegationBar.appendChild(addPostButtonLink);
 navegationBar.appendChild(savedPostButtonLink);
 navegationBar.appendChild(profileButtonLink);
 /*navegationBarDiv.appendChild(navegationBar);*/
+
+
+if (window.matchMedia("(min-width: 991px)").matches) {
+//AÑADIR EN ESTE IF EL LOGO Y EL BOTON DE CERRAR SESION
+const homeButtonText = document.createElement('p');
+homeButtonText.innerText = 'Home';
+homeButtonText.className = 'iconButtonText';
+const searchButtonText = document.createElement('p');
+searchButtonText.innerText = 'Buscar';
+searchButtonText.className = 'iconButtonText';
+const newPostButtonText = document.createElement('p');
+newPostButtonText.innerText = 'Nueva Publicacion';
+newPostButtonText.className = 'iconButtonText';
+const savedButtonText = document.createElement('p');
+savedButtonText.innerText = 'Favoritos';
+savedButtonText.className = 'iconButtonText';
+const porfileButtonText = document.createElement('p');
+porfileButtonText.innerText = 'Perfil';
+porfileButtonText.className = 'iconButtonText';
+homeButtonLink.appendChild(homeButtonText);
+searchButtonLink.appendChild(searchButtonText);
+addPostButtonLink.appendChild(newPostButtonText);
+savedPostButtonLink.appendChild(savedButtonText);
+profileButtonLink.appendChild(porfileButtonText);
+}
+
+
 return navegationBar
 };
 
