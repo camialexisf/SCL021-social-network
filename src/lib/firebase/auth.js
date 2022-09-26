@@ -24,6 +24,7 @@ import {
  query } from 'https://www.gstatic.com/firebasejs/9.9.4/firebase-firestore.js';
 
 
+
 // console.log('error');
 import { app } from './firebase.js';
 
@@ -137,18 +138,19 @@ const createNewPost = async (titleValue, postValue, placeValue) => {
   try {
     console.log(titleValue, postValue, placeValue);
     const docRef = await addDoc(collection(db, "tips"), {
-      text: postValue,
       title: titleValue,
+      text: postValue,
       place: placeValue,
       datePost: Timestamp.fromDate(new Date()),
       uid: auth.currentUser.uid,
+      email: auth.currentUser.email,
       stars:[],
       starCounter:0,
     });
     console.log("Document written with ID: ", docRef.id);
-    document.getElementById('titlePost').value = '';
+   /* document.getElementById('titlePost').value = '';
     document.getElementById('postArea').value = '';
-    document.getElementById('placePost').value = '';
+    document.getElementById('placePost').value = '';*/
   } catch (e) {
     console.error("Error adding document: ", e);
   } 
@@ -171,12 +173,15 @@ const printPost = async () => {
     headPost.className = 'headPost';
     headPost.setAttribute('id', `headPost-${doc.id}`);
     const userName = document.createElement('p')
-    userName.className = 'userName';
+    userName.className = 'userName'; 
     userName.setAttribute('id', `userName-${doc.id}`);
-
-
-    const titlePost = document.createElement('h2');
+    const userEmail = `${doc.data().email}`;
+    userName.innerHTML += userEmail.substring(0, userEmail.lastIndexOf('@'));
+  
+   
 //PARECE QUE FALTA EL ID DE TITLE.    
+   const iconsContainer = document.createElement('div');
+   iconsContainer.className = 'iconsContainer';
     const star = document.createElement('img');
     star.className = 'star';
     star.src = './images/sparkles.png';
@@ -192,41 +197,52 @@ const printPost = async () => {
     editIcon.className = 'editIcon';
     editIcon.src = './images/edit.png';
     editIcon.setAttribute('id',`edit-${doc.id}`);
+    editIcon.value = doc.id;
     const trashCan = document.createElement('img');
     trashCan.className = 'trashCan';
     trashCan.src = './images/trash.png';
     trashCan.setAttribute('id', doc.id);
+    const titlePost = document.createElement('h2'); 
     titlePost.className = 'titlePost';
     titlePost.innerHTML += `${doc.data().title}`;
+    titlePost.setAttribute('id', 'titlePostContainer');
     const descriptionPost = document.createElement('p');
     descriptionPost.className = 'descriptionPost';
     descriptionPost.innerHTML += `${doc.data().text}`;
+    descriptionPost.setAttribute('id', 'postAreaContainer');
+    const placePost = document.createElement('p');
+    placePost.className = 'placePost';
+    placePost.innerHTML += `${doc.data().place}`;
+    placePost.setAttribute('id', 'placePostContainer');
 
     postBox.appendChild(headPost);
     headPost.appendChild(userName); 
-    headPost.appendChild(starsCount);
-    headPost.appendChild(star);
-    headPost.appendChild(editIcon);
-    headPost.appendChild(trashCan);
+    headPost.appendChild(iconsContainer);
+    iconsContainer.appendChild(starsCount);
+    iconsContainer.appendChild(star);
+    iconsContainer.appendChild(editIcon);
+    iconsContainer.appendChild(trashCan);
 
 
     postBox.appendChild(titlePost);
     postBox.appendChild(descriptionPost);
+    postBox.appendChild(placePost);
     postDiv.appendChild(postBox);
     trashCan.addEventListener('click', (e) => {
       e.target.getAttribute(trashCan.id);
       deletePost(e.target.id);
     });
 
-    editIcon.addEventListener('click', (e) => {
-      e.target.getAttribute(editIcon.id);
-      const editText = doc.data().text;
-      console.log('esto es editText', editText);
+   editIcon.addEventListener('click', (e) => {
+    const submitPost = document.getElementById('newPostButton');
+    const editPostButton = document.getElementById('editButtonHome');
+    editPostButton.style.display = 'block';
+    submitPost.style.display = 'none';
+      e.target.getAttribute(editIcon.value);
       const editTitle = doc.data().title;
-      console.log('esto es editTitle', editTitle);
+      const editText = doc.data().text;
       const editPlace = doc.data().place;
-      console.log('esto es editPlace', editPlace);
-      editPost(e.target.id, editText ,editTitle, editPlace);
+      editPost(e.target.value, editTitle, editText, editPlace);
     });
 
     star.addEventListener('click', (e) => {
@@ -244,6 +260,10 @@ const printPost = async () => {
     const userName = document.createElement('p')
     userName.className = 'userName';
     userName.setAttribute('id', `userName-${doc.id}`);
+    const userEmail = `${doc.data().email}`;
+    userName.innerHTML += userEmail.substring(0, userEmail.lastIndexOf('@'));
+    const iconsContainer = document.createElement('div');
+    iconsContainer.className = 'iconsContainer';
     const star = document.createElement('img');
     star.className = 'star';
     star.src = './images/sparkles.png';
@@ -258,16 +278,24 @@ const printPost = async () => {
     const titlePost = document.createElement('h2');
     titlePost.className = 'titlePost';
     titlePost.innerHTML += `${doc.data().title}`;
+    titlePost.setAttribute('id', 'titlePostContainer');
     const descriptionPost = document.createElement('p');
     descriptionPost.className = 'descriptionPost';
     descriptionPost.innerHTML += `${doc.data().text}`;
+    descriptionPost.setAttribute('id', 'postAreaContainer');
+    const placePost = document.createElement('p');
+    placePost.className = 'placePost';
+    placePost.innerHTML += `${doc.data().text}`;
+    placePost.setAttribute('id', 'placePostContainer');
 
      postBox.appendChild(headPost);
-     headPost.appendChild(userName);     
-     headPost.appendChild(starsCount);
-     headPost.appendChild(star);
+     headPost.appendChild(userName);
+     headPost.appendChild(iconsContainer);
+     iconsContainer.appendChild(starsCount);
+     iconsContainer.appendChild(star);
      postBox.appendChild(titlePost);
      postBox.appendChild(descriptionPost);
+     postBox.appendChild(placePost);
      postDiv.appendChild(postBox);
      star.addEventListener('click', (e) => {
       e.target.getAttribute(star.value);
@@ -285,26 +313,47 @@ const printPost = async () => {
     console.log(id);
   };
   
-  //funcion para editar posteos
-const editPost = async (id, editText, editTitle, editPlace) => {
-  window.location.hash = '#/createPost';
-  document.getElementById('postArea').value = editText;
-  document.getElementById('titlePost').value = editTitle;
-  document.getElementById('placePost').value = editPlace;
-  let editButton = getElementById('newPostButton');
-  editButton.innerHTML = 'Guardar Cambios';
+  // funcion para editar posteos
+const editPost = async (id, editTitle, editText, editPlace) => {
+const postRef = doc(db, "tips", id);
+document.getElementById('titlePost').value = editTitle;
+document.getElementById('postArea').value = editText;
+document.getElementById('placePost').value = editPlace;
+let editButton = document.getElementById('editButtonHome');
+console.log(editButton);
+editButton.addEventListener('click', async () => {
 
-  editButton.addEventListener('click', async () => {
+const editTitle = document.getElementById('titlePostContainer').value;
+const editText = document.getElementById('postAreaContainer').value;
+const editPlace = document.getElementById('placePostContainer').value;
+
+
+await updateDoc(postRef, { 
+  title: editTitle,
+  text: editText,
+  place: editPlace
+});
+})
+};
+
+/*const editPost = async (id, editText, editTitle, editPlace, titlePostEdit2, postAreaEdit2, placePostEdit2) => {
+  window.location.hash = '#/editPost'; 
+
+  console.log(titlePostEdit2);
+  console.log(postAreaEdit2);
+  console.log(placePostEdit2);
+  
+  titlePostEdit2.value = editTitle;
+  postAreaEdit2.value = editText;
+  placePostEdit2.value = editPlace;
+
   const tipsColection = doc(db, "tips", id);
-  document.getElementById('postArea').value;
-  document.getElementById('titlePost').value;
-  document.getElementById('placePost').value;
+
   await updateDoc(tipsColection, {
     text: postValue,
     title: titleValue,
     place: placeValue
-});})
-}
+})}*/
 
   // dar y quitar like
 

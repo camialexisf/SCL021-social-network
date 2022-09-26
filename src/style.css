@@ -106,7 +106,15 @@ body {
   margin: 0;
   width: 100%;
 }
-.logInViewContainer + .signUpViewContainer {
+.signUpViewContainer{
+  /*margin-right: 7%;*/
+  padding-bottom: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.logInViewContainer {
   /*margin-right: 7%;*/
   padding-bottom: 50%;
   display: flex;
@@ -135,14 +143,14 @@ body {
 }
 
 .wrapper {
- /* margin-left: 10%;*/
   width: 80vw;
-  /*height: 100vh;*/
+  height: 100%;
   background-color: none;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin: 0 0 20% 10%;
 }
 .modalForm {
   width: 100%;
@@ -155,10 +163,10 @@ body {
   width: 80%;
 }
 .inputPlusEye{
-display: flex;
-flex-direction: row;
-/*gap: 5%; */
-/*align-items: baseline;*/
+  display: flex;
+  flex-direction: row;
+ /*gap: 5%; */
+ /*align-items: baseline;*/
 }
 .eyeContainer{
   display: flex;
@@ -170,12 +178,12 @@ flex-direction: row;
 .eye{
   position: relative;
   width: 100%;
- /* box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.2);*/
+ /* box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.2); */
 }
 #openEye{
-display: none;
-width: 100%;
-position: relative;
+  display: none;
+  width: 100%;
+  position: relative;
 
 }
 .buttonsContainer {
@@ -292,13 +300,13 @@ input:focus {
 }
 
 .googleButton{
-background: var(--accent-purple);
-border: none;
-border-radius: 0px 10px 10px 0px;
+  background: var(--accent-purple);
+  border: none;
+  border-radius: 0px 10px 10px 0px;
 
 }
 .googleImage{
-width: 47%;
+  width: 47%;
 }
 
 .totalButton{
@@ -313,7 +321,7 @@ width: 47%;
   white-space: nowrap;
   text-align: center;    
   text-justify: center;
-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
 }
 
@@ -322,19 +330,19 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   background: var(--dark-purple);
   /* width: 30%; */
   display: flex;
- justify-content: center;
- align-items: center;
- border-radius: 10px 0px 0px 10px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px 0px 0px 10px;
 
 }
 .googleContainer{
-display: flex;
-justify-content: center;
-align-items: center;
-flex-direction: row;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
 }
 
-/*muro*/
+/* muro */
 .logoImagenHome{
   width: 40%;
 /*  margin: 40% 0 20% 3%; */
@@ -353,6 +361,7 @@ flex-direction: row;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  
 }
 
 .headerHomeView{
@@ -371,27 +380,27 @@ flex-direction: row;
 }
 
 .navegationBar {
-display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: center;
-position: fixed;
-bottom: 0;
-width: 100%;
-/*
-position: fixed;
-bottom: 0;
-max-width: 100%;
-max-height: 30%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  /*
+  position: fixed;
+  bottom: 0;
+  max-width: 100%;
+  max-height: 30%;
 
 
-bottom: 0;*/
-background: var(--light-purple);
+  bottom: 0;*/
+  background: var(--light-purple);
 }
 
 .navegationButton{
-padding: 3%;
-max-width: 35%;
+  padding: 3%;
+  max-width: 35%;
 }
 
 .createPostView {
@@ -449,6 +458,9 @@ padding: 10%;
   margin-bottom: 1vh;
   cursor: pointer;
 }
+.editButtonHome{
+  display: none;
+}
 
 .postClassContainer{
   display: flex;
@@ -465,9 +477,39 @@ padding: 10%;
 .categoriesImages {
   width: 80%;
 }
+#titlePost{
+ width: 100%;
+ padding: 1vh;
+ background: #f0eeff;
+ border-radius: 10px;
+  border: 0.3vh solid var(--dark-purple);
+  box-shadow: 0px 0px 2px rgba(30, 31, 79, 0.2);
+  margin-bottom: 5%;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+#placePost{
+  width: 100%;
+  padding: 1vh;
+  background: #f0eeff;
+  border-radius: 10px;
+  border: 0.3vh solid var(--dark-purple);
+  box-shadow: 0px 0px 2px rgba(30, 31, 79, 0.2);
+  margin-bottom: 5%;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
 
 .postArea {
   width: 100%;
+  padding: 1vh;
+  background: #f0eeff;
+border-radius: 10px;
+  border: 0.3vh solid var(--dark-purple);
+  box-shadow: 0px 0px 2px rgba(30, 31, 79, 0.2);
+  margin-bottom: 5%;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 
 .trashCan {
@@ -488,18 +530,29 @@ padding: 10%;
 }
 
 /*FORMATO POSTEO*/
-
-.createPostView{
-  padding-bottom: 40%;
+.iconsContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
 }
 
-.headPost {
-display: flex;
-flex-direction: row;
-justify-content: end;
-align-items: center;
-height: 10%;
+.userName{
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--blue);
+}
 
+.editPostView{
+width: 100%;
+}
+.headPost {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+  height: 10%;
+  border-bottom: 0.5vw solid var(--dark-purple);
 }
 
 .postBox {
@@ -552,7 +605,7 @@ body {
   background-attachment: fixed;
 }
 
-/*welcome*/
+/* welcome */
 .welcomeviewContainer{
   margin-top: 7%;
   padding: 0 0% 9% 0%;
@@ -608,10 +661,10 @@ body {
 /* LOG IN */
 .logInViewContainer{
   padding: 0 0% 9% 0%;
-display: flex;
-flex-direction: row;
-justify-content: start;
-align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
 }
 
 .logoContainer {
@@ -681,13 +734,13 @@ input:focus {
   margin-bottom: 5%;
 }
 
-/* SIGN UP*/
+/* SIGN UP */
 
 .signUpViewContainer{
-display: flex;
-flex-direction: row;
-justify-content: start;
-align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
 }
 
 .logoContainerSignUp {
@@ -710,7 +763,7 @@ align-items: center;
   cursor: pointer;
 }
 
-/* HOME*/
+/* HOME */
 .wallView{
   max-height: max-content;
   display: flex;
@@ -722,41 +775,127 @@ align-items: center;
 .headerHomeView{
   display: flex;
   flex-direction: row;
+  margin-top: 10%;
+}
+#newPostButton {
+  border: 0.3vw solid var(--dark-purple);
+  background: var(--light-purple);
+  color: var(--dark-purple);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  width: 20%;
+  padding: 2%;
+  border-radius: 20px;
+  border-bottom: 1vw solid var(--dark-purple);
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1vh;
+  cursor: pointer;
+  white-space: nowrap;
 }
 
 #trashCan{
   width: 20px;
 }
+
+
+
+/* NAV BAR */
+
 .navegationBar{
-  height: 20%;
+  height: 15%;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   flex-direction: row;
-  position: absolute;
-  top: 0%;
+  position: fixed;
+  top: 0;
   background: var(--light-purple);
   }
+
   .navIcon{
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-text-decoration:none;
+  display: flex;
+  width: 3%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-decoration:none;
   }
 
 .iconButtonText{
-text-decoration:none;
+  text-decoration:none;
+  font-size: 1rem;
   }
   
   .navegationButton{
-  max-width: 20%;
+  padding: 0%;
+  max-width: 100%;
   }
 
   .logoImagenHome{
-    width: 10%;
+    width: 20%;
   /*  margin: 40% 0 20% 3%; */
   }
+.logoImagenNav{
+    width: 20%;
+  }
 
+  .logOutButtonNav{
+    width:30%;
+  }
+
+.logOutButtonLinkNav{
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+  /* POSTEOS */
+  
+#postContainer {
+  width: 80%;
+  height: 70%;
+}
+
+.titlePost {
+  font-size: 2.3em;
+}
+
+  .postBox {
+    margin-top: 2%;
+    margin-bottom: 2%;
+    height: 70%;
+    width: 80%;
+    background: rgba(224, 223, 253, 0.6);
+    box-shadow: 0px 0px 14px 10px rgba(25, 32, 92, 0.25);
+    border-radius: 10px;
+    padding: 3%;
+    cursor: pointer;
+    word-wrap:break-word; 
+  }
+
+  .trashCan {
+    width: 5%;
+  }
+  
+  .editIcon {
+    width: 5%;
+    margin-right: 2%;
+  }
+  .star {
+    width: 5%;
+    margin-right: 2%;
+  }
+  .starsCount{
+    font-size: 2rem;
+    margin-right: 1%;
+  }
+  .headPost {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 10%;
+    border-bottom: 0.5vw solid var(--dark-purple);
+  }
 
 .footer{
   font-size: 1.8vw;
