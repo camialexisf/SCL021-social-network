@@ -1,5 +1,6 @@
 import navBar from './navBar.js';
 
+// Gran contenedor con la función de error.
 const error404 = () => {
   const errorViewContainer = document.createElement('div');
   errorViewContainer.className = 'errorViewContainer';
@@ -9,7 +10,7 @@ const error404 = () => {
   errorMessageContainer.className = 'errorMessageContainer';
   const errorTitle = document.createElement('h1');
   errorTitle.className = 'errorTitle';
-  errorTitle.innerText = 'Ups!'
+  errorTitle.innerText = 'Ups!';
   const errorText = document.createElement('p');
   errorText.innerText = 'aqui no hay nada aún';
   errorText.className = 'errorText';
@@ -17,15 +18,14 @@ const error404 = () => {
   errorImage.src = './images/bombillaTriste.png';
   errorImage.className = 'errorImage';
 
+  // se ordenan los elementos
   errorMessageContainer.appendChild(errorImage);
   errorContainer.appendChild(errorTitle);
   errorContainer.appendChild(errorText);
-  errorMessageContainer.appendChild(errorContainer)
+  errorMessageContainer.appendChild(errorContainer);
   errorViewContainer.appendChild(errorMessageContainer);
   errorViewContainer.appendChild(navBar());
   return errorViewContainer;
 };
-
-
 
 export default error404;
